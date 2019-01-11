@@ -3,7 +3,7 @@ package ru.geekbrains.Jawa1.Jawa1Lesson2;
 import java.util.Arrays;
 
 public class Lesson2 {
-
+//
     public static void main(String[] args) {
         System.out.println("Задание № 1");
         exercise1();
