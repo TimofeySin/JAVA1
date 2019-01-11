@@ -1,9 +1,10 @@
-﻿package ru.geekbrains.Jawa1.Jawa1Lesson3;
+
+package ru.geekbrains.Jawa1.Jawa1Lesson3;
 
 import java.util.Arrays;
 import java.util.Scanner;
-//
-public class Lesson3 {
+
+public class Lesson3{
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
