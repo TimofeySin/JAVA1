@@ -2,7 +2,7 @@ package ru.geekbrains.Jawa1.Jawa1Lesson4;
 
 import java.util.Random;
 import java.util.Scanner;
-
+//
 public class Lesson4 {
     static Scanner sc = new Scanner(System.in);
     static Random random = new Random();
