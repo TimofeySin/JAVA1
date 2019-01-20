@@ -2,7 +2,7 @@ package ru.geekbrains.Jawa1.Jawa1Lesson4_2;
 
 import java.util.Random;
 import java.util.Scanner;
-
+//
 public class Cross {
 
     static int SIZE_X = 3;
