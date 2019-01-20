@@ -2,12 +2,13 @@ package ru.geekbrains.Jawa1.Jawa1Lesson4_2;
 
 import java.util.Random;
 import java.util.Scanner;
+
 //
 public class Cross {
 
     static int SIZE_X = 3;
     static int SIZE_Y = 3;
-
+    static int DOTS_TO_WIN = 3;
     static char[][] field = new char[SIZE_X][SIZE_Y];
     static Scanner scanner = new Scanner(System.in);
     static Random random = new Random();
@@ -118,6 +119,28 @@ public class Cross {
         return false;
     }
 
+    static boolean checkWins(char dot) {
+        for (int i = 0; i < SIZE_X; i++) {
+            for (int j = 0; j < SIZE_Y; j++) {
+                if (checkLine(i, j, 1, 0, dot) || checkLine(i, j, 0, 1, dot) || checkLine(i, j, 1, 1, dot) || checkLine(i, j, 1, -1, dot)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    static boolean checkLine(int cx, int cy, int vx, int vy, char dot) {
+        if (cx + vx * DOTS_TO_WIN - 1 > SIZE_X - 1 || cy + vy * DOTS_TO_WIN - 1 > SIZE_Y - 1 || cy + vy * DOTS_TO_WIN - 1 < 0) {
+            return false;
+        }
+        for (int i = 0; i < DOTS_TO_WIN; i++) {
+            if (field[cx + i * vx][cy + i * vy] != dot) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     static boolean isFieldFull() {
         for (int i = 0; i < SIZE_Y; i++) {
             for (int j = 0; j < SIZE_X; j++) {
@@ -134,7 +157,7 @@ public class Cross {
         while (true) {
             playerStep();
             printField();
-            if (checkWin(PLAYER_DOT)) {
+            if (checkWins(PLAYER_DOT)) {
                 System.out.println("Игрок выиграл!");
                 break;
             }
@@ -144,7 +167,7 @@ public class Cross {
             }
             aiStep();
             printField();
-            if (checkWin(AI_DOT)) {
+            if (checkWins(AI_DOT)) {
                 System.out.println("Комп выиграл!");
                 break;
             }
@@ -154,4 +177,6 @@ public class Cross {
             }
         }
     }
+
+
 }
